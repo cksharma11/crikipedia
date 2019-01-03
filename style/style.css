@@ -7,7 +7,7 @@ input[type='text'] {
   margin: 28px 0;
   box-shadow: 3px 3px 5px lightgray;
 }
-a {
+input[type="button"] {
   background: lightgray;
   border-radius: 10px;
   color: rgb(91, 90, 90);
@@ -18,7 +18,7 @@ a {
   font-size: 20px;
 }
 
-a:hover {
+input[type="button"]:hover {
   color: black;
   border: 1px solid gray;
 }
