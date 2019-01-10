@@ -3,8 +3,8 @@ html {
 }
 
 body {
-  width: 70%;
-  margin: 1% 15%;
+  width: 80%;
+  margin: 1% 10%;
   background: white;
   font-family: sans-serif;
 }
@@ -72,6 +72,7 @@ body {
 td,
 th {
   padding: 5px;
+  font-size: 14px;
 }
 
 thead {
