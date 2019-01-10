@@ -51,9 +51,8 @@ http
 
     if (parsedURL.pathname == getFindPlayerPage()) {
       return getPlayerDetails(parsedURL.query.player_name, res);
-    } else {
-      const filename = setPath(parsedURL);
-      return readHTML(filename, res);
     }
+    const filename = setPath(parsedURL);
+    return readHTML(filename, res);
   })
   .listen(8888);
