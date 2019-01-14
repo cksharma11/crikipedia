@@ -41,18 +41,19 @@ const readHTML = (filename, res) => {
   });
 };
 
-http
-  .createServer(function(req, res) {
-    const parsedURL = parseURL(req);
+const requestHandler = function(req, res) {
+  const parsedURL = parseURL(req);
 
-    if (parsedURL.pathname == '/') {
-      parsedURL.pathname = getHomePage();
-    }
+  if (parsedURL.pathname == '/') {
+    parsedURL.pathname = getHomePage();
+  }
 
-    if (parsedURL.pathname == getFindPlayerPage()) {
-      return getPlayerDetails(parsedURL.query.player_name, res);
-    }
-    const filename = setPath(parsedURL);
-    return readHTML(filename, res);
-  })
-  .listen(8888);
+  if (parsedURL.pathname == getFindPlayerPage()) {
+    return getPlayerDetails(parsedURL.query.player_name, res);
+  }
+  const filename = setPath(parsedURL);
+  return readHTML(filename, res);
+};
+
+const server = http.createServer(requestHandler);
+server.listen(8000);
