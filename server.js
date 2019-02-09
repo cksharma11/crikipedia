@@ -2,6 +2,7 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const { getPlayerDetails } = require('./js/cricket_api');
+const PORT = process.env.PORT || 8000;
 
 const parseURL = req => url.parse(req.url, true);
 
@@ -56,4 +57,4 @@ const requestHandler = function(req, res) {
 };
 
 const server = http.createServer(requestHandler);
-server.listen(8000);
+server.listen(8000, () => console.log('Listening on port', PORT));
