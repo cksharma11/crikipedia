@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require("request");
 const CRICK_API_KEY = process.env.CRICK_API_KEY;
 
 const getPlayerDetails = function(player, response) {
@@ -8,8 +8,8 @@ const getPlayerDetails = function(player, response) {
       return 1;
     }
     if (JSON.parse(body).data[0] == undefined) {
-      response.writeHead(404, { 'content-type': 'text/html' });
-      response.write('Player not found!');
+      response.writeHead(404, { "content-type": "text/html" });
+      response.write("Player not found!");
       return response.end();
     }
     const pid = JSON.parse(body).data[0].pid;
@@ -24,7 +24,7 @@ const getDetails = function(playerID, response) {
       return 1;
     }
 
-    response.writeHead(200, { 'content-type': 'text/html' });
+    response.writeHead(200, { "content-type": "text/html" });
     const playerData = JSON.parse(body);
     console.log(playerData);
     let pageHead = `<!DOCTYPE html>
@@ -55,16 +55,16 @@ const getDetails = function(playerID, response) {
             <tr class="data_row">
               <td class="label">Born</td>
               <td>${playerData.born
-                .split(' ')
+                .split(" ")
                 .slice(0, 3)
-                .join(' ')}</td>
+                .join(" ")}</td>
             </tr>
             <tr class="data_row">
               <td class="label">Birth Place</td>
               <td>${playerData.born
-                .split(' ')
+                .split(" ")
                 .slice(3)
-                .join(' ')}</td>
+                .join(" ")}</td>
             </tr>
             <tr class="data_row">
               <td class="label">Role</td>
@@ -117,8 +117,8 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.batting.tests.SR}</td>
                 <td>${playerData.data.batting.tests[100]}</td>
                 <td>${playerData.data.batting.tests[50]}</td>
-                <td>${playerData.data.batting.tests['4s']}</td>
-                <td>${playerData.data.batting.tests['6s']}</td>
+                <td>${playerData.data.batting.tests["4s"]}</td>
+                <td>${playerData.data.batting.tests["6s"]}</td>
               </tr>`;
 
     pageBody += `<tr>
@@ -130,8 +130,8 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.batting.ODIs.SR}</td>
                 <td>${playerData.data.batting.ODIs[100]}</td>
                 <td>${playerData.data.batting.ODIs[50]}</td>
-                <td>${playerData.data.batting.ODIs['4s']}</td>
-                <td>${playerData.data.batting.ODIs['6s']}</td>
+                <td>${playerData.data.batting.ODIs["4s"]}</td>
+                <td>${playerData.data.batting.ODIs["6s"]}</td>
               </tr>`;
 
     pageBody += `<tr>
@@ -143,8 +143,8 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.batting.T20Is.SR}</td>
                 <td>${playerData.data.batting.T20Is[100]}</td>
                 <td>${playerData.data.batting.T20Is[50]}</td>
-                <td>${playerData.data.batting.T20Is['4s']}</td>
-                <td>${playerData.data.batting.T20Is['6s']}</td>
+                <td>${playerData.data.batting.T20Is["4s"]}</td>
+                <td>${playerData.data.batting.T20Is["6s"]}</td>
               </tr>`;
 
     pageBody += `<tr>
@@ -156,8 +156,8 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.batting.firstClass.SR}</td>
                 <td>${playerData.data.batting.firstClass[100]}</td>
                 <td>${playerData.data.batting.firstClass[50]}</td>
-                <td>${playerData.data.batting.firstClass['4s']}</td>
-                <td>${playerData.data.batting.firstClass['6s']}</td>
+                <td>${playerData.data.batting.firstClass["4s"]}</td>
+                <td>${playerData.data.batting.firstClass["6s"]}</td>
               </tr> 
               </tbody>
           </table>`;
@@ -194,7 +194,7 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.bowling.tests.Econ}</td>
                 <td>${playerData.data.bowling.tests.Ave}</td>
                 <td>${playerData.data.bowling.tests.SR}</td>
-                <td>${playerData.data.bowling.tests['5w']}</td>
+                <td>${playerData.data.bowling.tests["5w"]}</td>
                 <td>${playerData.data.bowling.tests[10]}</td>
               </tr>
               <tr>
@@ -209,7 +209,7 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.bowling.ODIs.Econ}</td>
                 <td>${playerData.data.bowling.ODIs.Ave}</td>
                 <td>${playerData.data.bowling.ODIs.SR}</td>
-                <td>${playerData.data.bowling.ODIs['5w']}</td>
+                <td>${playerData.data.bowling.ODIs["5w"]}</td>
                 <td>${playerData.data.bowling.ODIs[10]}</td>
               </tr>
               <tr>
@@ -224,7 +224,7 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.bowling.T20Is.Econ}</td>
                 <td>${playerData.data.bowling.T20Is.Ave}</td>
                 <td>${playerData.data.bowling.T20Is.SR}</td>
-                <td>${playerData.data.bowling.T20Is['5w']}</td>
+                <td>${playerData.data.bowling.T20Is["5w"]}</td>
                 <td>${playerData.data.bowling.T20Is[10]}</td>
               </tr>
               <tr>
@@ -239,7 +239,7 @@ const getDetails = function(playerID, response) {
                 <td>${playerData.data.bowling.firstClass.Econ}</td>
                 <td>${playerData.data.bowling.firstClass.Ave}</td>
                 <td>${playerData.data.bowling.firstClass.SR}</td>
-                <td>${playerData.data.bowling.firstClass['5w']}</td>
+                <td>${playerData.data.bowling.firstClass["5w"]}</td>
                 <td>${playerData.data.bowling.firstClass[10]}</td>
               </tr>
             </tbody>
