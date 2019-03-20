@@ -9,7 +9,7 @@ const parseURL = req => url.parse(req.url, true);
 const getHomePage = () => "/index.html";
 const getFindPlayerPage = () => "/find_player";
 
-const setPath = parsedURL => parsedURL.pathname;
+const setPath = parsedURL => "." + parsedURL.pathname;
 
 const setContentTypeHTML = () => "text/html";
 const setContentTypeCSS = () => "text/css";
