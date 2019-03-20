@@ -1,7 +1,8 @@
 const request = require('request');
+const CRICK_API_KEY = process.env.CRICK_API_KEY;
 
 const getPlayerDetails = function(player, response) {
-  const playerIdUrl = `https://cricapi.com/api/playerFinder?apikey=62cC1Nr6dCZEEqAycpQks3S7D0O2&name=${player}`;
+  const playerIdUrl = `https://cricapi.com/api/playerFinder?apikey=${CRICK_API_KEY}&name=${player}`;
   request(playerIdUrl, function(error, res, body) {
     if (error) {
       return 1;
@@ -17,7 +18,7 @@ const getPlayerDetails = function(player, response) {
 };
 
 const getDetails = function(playerID, response) {
-  const playerDetailsUrl = `https://cricapi.com/api/playerStats?apikey=62cC1Nr6dCZEEqAycpQks3S7D0O2&pid=${playerID}`;
+  const playerDetailsUrl = `https://cricapi.com/api/playerStats?apikey=${CRICK_API_KEY}&pid=${playerID}`;
   request(playerDetailsUrl, function(error, res, body) {
     if (error) {
       return 1;
