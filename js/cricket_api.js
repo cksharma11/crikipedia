@@ -12,8 +12,8 @@ const getPlayerDetails = function(player, response) {
       response.write("Player not found!");
       return response.end();
     }
-    const pid = JSON.parse(body).data[0].pid;
-    return getDetails(pid, response);
+    const playerId = JSON.parse(body).data[0].pid;
+    return getDetails(playerId, response);
   });
 };
 

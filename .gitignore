@@ -1,2 +1,4 @@
 .node_modules
 nodemodules/*
+node_*
+package-*
