@@ -1,5 +1,5 @@
 const request = require("request");
-const CRICK_API_KEY = process.env.CRICK_API_KEY;
+const CRICK_API_KEY = "62cC1Nr6dCZEEqAycpQks3S7D0O2";
 
 const getPlayerDetails = function(player, response) {
   const playerIdUrl = `https://cricapi.com/api/playerFinder?apikey=${CRICK_API_KEY}&name=${player}`;
